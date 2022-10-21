@@ -1,0 +1,30 @@
+
+  <body>
+  
+
+    <div class="app">
+        <form>
+            <p>Currency Conversion Calculator</p>
+            <img src="src/Convert_Symbol.png" alt="convert">
+            <p>From</p>
+          <input type="number" name="from_amount" />
+          <select name="from_currency">
+            <option>Select a Currency</option>
+          </select>
+          <p>To</p>
+          <select name="to_currency">
+            <option>Select a Currency</option>
+          </select>
+          <p>Converts to</p>
+          <p class="to_amount">$0</p>
+          <p class="to_amount2"></p>
+          <p>Conversion Rate (in USD)</p>
+          <p class="current_rate">$0</p>
+        </form>
+      </div>
+    
+      <script src="/src/countriesCodes.js"></script>
+      <script>form.addEventListener('input', handleInput);</script>
+     
+    
+    </body>
