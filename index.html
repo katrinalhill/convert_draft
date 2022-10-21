@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="./src/Images/favicon.ico">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>AOR Currency Converter</title>
+        <meta name="description" content="Currency converter with additional features">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./src/site.css">
+        <link rel="modules" href="./src/index.js">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+        <style> img {border:5px solid rgb(176, 179, 210)}</style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="ticker">
+                <div><h3>Live-Updated Rates</h3></div>
+                   <div class="update">
+                     <marquee>
+                        <div id="scroll"></div>
+                     </marquee>
+                </div>
+            </div>
+        </div>
+       <div>
+       
+        <form>
+            <a href=./src/graph.html>Historical Data</a>
+                <!-- <input type=button value = "Historical Data" href=./src/graph.html></input> -->
+             
+        </form>
+       
+        <!-- <script>
+            function goToHistPage()
+            {
+                var url = document.getElementById('histData').value;
+                if(url != 'none') {
+                    window.location = url;
+                }
+            }
+        </script> -->
+       
+       </div>
+        <div>
+        <h1 id=Header>Currency Converter: TEAM TRON</h1>
+       </div>
+       <div>
+        <h2>Convert Your Currency by AOR!</h2>
+       </div>
+       <img src="./src/Images/Money.png" alt="convert your money" style="width: 350px">
+       <div class="Currency-Conversion-Site">
+        <form>
+            <p>
+                <form>
+                    <select name="list" id="list" accesskey="target">
+                        <option value='none' selected>Choose Your AOR</option>
+                        <option value="./src/AORs/centcom.html">CENTCOM</option>
+                        <option value="./src/AORs/africom.html">AFRICOM</option>
+                        <option value="./src/AORs/eucom.html">EUCOM</option>
+                        <option value="./src/AORs/indopacom.html">INDOPACOM</option>
+                        <option value="./src/AORs/northcom.html">NORTHCOM</option>
+                        <option value="./src/AORs/southcom.html">SOUTHCOM</option>
+                    </select>
+                    <input type=button value="Go" onclick="goToNewPage()" />
+                    </form>
+                    <script type="text/javascript">
+                        function goToNewPage()
+                        {
+                            var url = document.getElementById('list').value;
+                            if(url != 'none') {
+                                window.location = url;
+                            }
+                        }
+                    </script>
+                
+            </p>
+            
+            
+
+            <body>
+                <div class="app">
+                    <form>
+                        <p>Currency Conversion Calculator</p>
+                        <p>From</p>
+                      <input type="number" name="from_amount" />
+                      <select name="from_currency">
+                        <option>Select a Currency</option>
+                      </select>
+                      <p>To</p>
+                      <select name="to_currency">
+                        <option>Select a Currency</option>
+                      </select>
+                      <p>Converts to</p>
+                      <p class="to_amount">$0</p>
+                      <p class="to_amount2"></p>
+                      <p>Conversion Rate (in USD)</p>
+                      <p class="current_rate">$0</p>
+                    </form>
+                  </div>
+                
+                  <script src="./src/ConvertEndPoint.js"></script>
+                  <script>form.addEventListener('input', handleInput);</script>
+                 
+                </body>
+            
+    <!-- <div id="test1">    
+        <script type="text/javascript"; src="./src/ConvertEndPoint.js" async defer></script>
+        <script>form.addEventListener('input', handleInput);</script>
+    </div> -->
+    <div>
+        <script type="module"; src="./src/index.js" async defer></script>
+    </div>
+  
+</body>
+
+
+
+
+<body> 
+<!-- AOR HTML Stuff -->
+<div style ="display: none" class = "USD" id="USD"></div>
+<div style ="display: none" class ="usercountry" id="usercountry"></div>
+<div style ="display: none" class = "africom" id="africom">
+    <div class = "djibouti" id="djibouti"></div>
+    <div class = "somalia" id="somalia"></div>
+    <div class = "nigeria" id="nigeria"></div>
+    <div class = "WAFCA" id="WACFA"></div>
+</div>
+<div style ="display: none" class = "centcom" id="centcom">
+    <div class = "iraq" id="iraq"></div>
+    <div class = "pakistan" id="pakistan"></div>
+    <div class = "kuwait" id="kuwait"></div>
+    <div class = "iran" id="iran"></div>
+</div>
+<div style ="display: none" class = "eucom" id="eucom">
+    <div class = "germany" id="germany"></div>
+    <div class = "poland" id="poland"></div>
+    <div class = "romania" id="romania"></div>
+    <div class = "turkey" id="turkey"></div>
+</div>
+<div style ="display: none" id="indopacom">
+    <div class = 'southkorea' id="southkorea"></div>
+    <div class = 'japan' id="japan"></div>
+    <div class = 'phillipines' id="phillipines"></div>
+    <div class = 'indonesia' id="indonesia"></div>
+    <div style ="display: none" class = 'vietnam' id="vietnam"></div>
+</div>
+<div style ="display: none" id="northcom">
+    <div class = 'canada' id="canada"></div>
+    <div class = 'mexico' id="mexico"></div>
+    <div class = 'bahamas' id="bahamas"></div>
+</div>
+<div style ="display: none" class = 'southcom' id="southcom">
+    <div class = 'brazil' id="brazil"></div>
+    <div class = 'venezuela' id="venezuela"></div>
+    <div class = 'honduras' id="honduras"></div>
+    <div class = 'bolivia' id="bolivia"></div>
+</div>
+
+
+
+</body>
+
+<link rel="modules" href="./src/graph.html"></link>
+
+<!-- //Justin's Code -->
+
+</html>

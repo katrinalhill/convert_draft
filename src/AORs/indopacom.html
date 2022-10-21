@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Currency Converter Site</title>
+        <meta name="description" content="Currency converter with additional features">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="site.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    </head>
+    <body>
+        <style>body {
+            margin: 20;
+            display: inline-block;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            min-width: 100vw;
+            text-align: center;
+            background-color:rgb(39, 36, 36);
+            color: aliceblue;
+            margin: auto;
+          }
+          
+        h1 {
+            margin: 0;
+            margin-bottom: .5rem
+          }</style>
+
+        <div>
+            <h4>  
+                <marquee style="background-color: rgba(0, 255, 94, 0.329)">
+                    <div id="ticker"></div>
+                </marquee>
+            </h4>
+        </div>
+
+       <div>
+        <h1>Currently Selected AOR: INDOPACOM</h1>
+       </div>
+       <div>
+        <h2> <a href=/index.html>HOME</a></h2>
+       </div>
+
+    <style>
+        .USD{
+            width:17.8%;
+            width:17.8%;
+            height:6vh;
+            background-color: rgba(183, 130, 55, 0.607);
+            font-size:2.4em;
+            font-weight: bold;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            position:absolute;
+            left:10%;
+            top:50%;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            color: aliceblue;
+            border: 10px;
+            max-width: 700px;
+            margin:auto;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+
+                                  <!-- // USD // -->
+    <div class = "USD" id="USD"></div>
+    <div class ="usercountry" id="usercountry"></div>
+
+                                <!-- // CENTCOM // -->
+
+      <div>                         
+    <style>
+        .southkorea{
+            float:right;
+            width:13.5%;
+            height:6vh;
+            background-color: rgba(183, 130, 55, 0.607);
+            font-size:1.25em;
+            font-weight: bold;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            position: absolute;
+            left:29.8%;
+            top:50%;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            color: aliceblue;
+            border: 10px;
+            max-width: 700px;
+            margin:auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+
+    <style>
+        .japan{
+            width:13.5%;
+            height:6vh;
+            background-color: rgba(183, 130, 55, 0.607);
+            font-size:1.25em;
+            font-weight: bold;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            position: absolute;
+            left:45%;
+            top: 50%;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            color: aliceblue;
+            border: 10px;
+            max-width: 700px;
+            margin:auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+
+    <style>
+        .phillipines{
+            width:13.5%;
+            height:6vh;
+            background-color: rgba(183, 130, 55, 0.607);
+            font-size:1.25em;
+            font-weight: bold;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            position: absolute;
+            left:60.22%;
+            top:50%;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            color: aliceblue;
+            border: 10px;
+            max-width: 700px;
+            margin:auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+
+    <style>
+        .indonesia{
+            width:13.5%;
+            height:6vh;
+            background-color: rgba(183, 130, 55, 0.607);
+            font-size:1.25em;
+            font-weight: bold;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            position: absolute;
+            left:75.59%;
+            top:50%;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            color: aliceblue;
+            border: 10px;
+            max-width: 700px;
+            margin:auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+    </style>
+    </div> 
+    
+    <div style ="display: none" class = "africom" id="africom">
+        <div class = "djibouti" id="djibouti"></div>
+        <div class = "somalia" id="somalia"></div>
+        <div class = "nigeria" id="nigeria"></div>
+        <div class = "WAFCA" id="WACFA"></div>
+    </div>
+
+    <div style ="display: none" class = "centcom" id="centcom">
+        <div class = "iraq" id="iraq"></div>
+        <div class = "pakistan" id="pakistan"></div>
+        <div class = "kuwait" id="kuwait"></div>
+        <div class = "iran" id="iran"></div>
+    </div>
+
+    <div style ="display: none" class = "eucom" id="eucom">
+        <div class = "germany" id="germany"></div>
+        <div class = "poland" id="poland"></div>
+        <div class = "romania" id="romania"></div>
+        <div class = "turkey" id="turkey"></div>
+    </div>
+
+    <div id="indopacom">
+        <div class = 'southkorea' id="southkorea"></div>
+        <div class = 'japan' id="japan"></div>
+        <div class = 'phillipines' id="phillipines"></div>
+        <div class = 'indonesia' id="indonesia"></div>
+        <div style ="display: none" class = 'vietnam' id="vietnam"></div>
+    </div>
+
+    <script type="module" src="../index.js" async defer></script>
+
+
+</body>
+
+</html> 

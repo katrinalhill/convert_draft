@@ -1,0 +1,80 @@
+#Header {
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 60px;
+  color: rgb(192, 233, 109)
+}
+
+.container .ticker {
+  color: black;
+  background: red;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight:100;
+  font-size: 15px;
+}
+
+.container .ticker .update {
+  background: rgb(42, 116, 42);
+  color: black;
+  align-items: center;
+  font-family: Franklin Gothic Medium, 'Arial';
+  font-weight: 100;
+  
+}
+
+
+body {
+    margin: 0;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    text-align: center;
+    color: gold;
+    background: rgb(33, 32, 32);
+    font-family:'Courier New', Courier, monospace;
+    
+  }
+
+body form a {
+  background-color:rgb(28, 25, 25);
+  color: rgb(81, 58, 211);
+  font-family:'Times New Roman', Times, serif;
+  font-weight: 100;
+  font-size: 30px;
+}
+
+body body {
+  margin: 0;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  text-align: center;
+  color: gold;
+  background: rgb(139, 40, 40);
+  font-family:'Courier New', Courier, monospace;
+  
+}
+
+body title h1 {
+  background: white;
+}
+
+  
+option {
+  font-family: Arial, Helvetica, sans-serif
+}
+
+/* .box {
+  height: 50px;
+  width: 200px;
+  padding: 20px;
+  margin: 20px;
+  border: 5px solid white;
+  position: sticky;
+  top: 50% */
+  
+  
+

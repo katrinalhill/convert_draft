@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Historical Rates</title>
+        <meta name="description" content="Previous 30 days' rates for selected country">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    </head>
+    <body>
+        <select id = "select" onchange="getSelectValue()">
+            <option value = "default">Select a Country</option>
+        </select>   
+        <a href=/index.html>Return Home</a>     
+        <canvas id="chart" width="800" height="400"></canvas>
+        
+    
+       <script>
+        //createSelectOptions -> getSelectValue -> getHistory -> chartHistory
+        let xDates = [];
+        let yRates = [];
+        let countrySymbol;
+        let histChart = null;
+        createSelectOptions()
+        
+        
+        //Populate the dropdown menu with the list of countries
+        function createSelectOptions() {
+        let select = document.getElementById("select"),
+            selectArray = [];
+
+            return fetch('https://api.exchangerate.host/latest')
+            .then(response => {
+                if (response.status !== 200) {
+                    throw new Error(`Unable to connect`)
+                    }
+                return response.json()
+                })
+            
+            .then(data => {
+                for (item in data.rates) {
+                    selectArray.push(item)
+                    //console.log(item)
+                }
+                for (let i = 0; i < selectArray.length; i++) {
+                let option = document.createElement("OPTION"),
+                    text = document.createTextNode(selectArray[i]);
+                    option.appendChild(text);
+                    option.setAttribute("value", selectArray[i]);
+                    select.insertBefore(option,select.lastChild);
+                }
+            })
+            
+            .catch(err => {
+                return err
+            })
+        }
+        
+        //Sets the country-code based on what the user selects in drop-down
+        
+        function getSelectValue() {
+            countrySymbol = document.getElementById("select").value;
+            chartHistory();
+        }
+        
+        //Builds the graph chart; won't execute until getHistory() is complete
+        async function chartHistory() {
+            await getHistory()
+        const ctx = document.getElementById('chart').getContext('2d');
+        if (histChart) {
+            histChart.destroy()
+        } 
+        histChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: xDates,
+        datasets: [{
+            label: `End of Day Rates for ${countrySymbol} for the Last 30 Days (relative to 1USD)`,
+            data: yRates,
+            fill: false,
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            tension: 0.1,
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: false,
+                grid: {
+                    color: '#333'
+                }
+            },
+            x: {
+                beginAtZero: false,
+                grid: {
+                    color: '#333'
+                }
+            }
+        }
+    }
+
+});
+}
+
+//URL TO REQUEST LAST 30 DAYS OF CURRENCY NEEDS TO BE IN THIS FORMAT: 
+//https://api.exchangerate.host/timeseries?start_date=2022-09-18&end_date=2022-10-18&base=USD&symbols=KWD
+
+//Date() doesn't put a zero in front of single-digit numbers, which will mess up the URL fetch. This function fixes that.
+function padTo2Digits(num) {
+  return num.toString().padStart(2, '0');
+}
+
+//Returns Date() output as a numerical YYYY-MM-DD format with single-digit numbers being padded by the above function.
+function formatDate(date) {
+  return [
+    date.getFullYear(),
+    padTo2Digits(date.getMonth() + 1),
+    padTo2Digits(date.getDate()),
+  ].join('-');
+}
+
+//Pulls the last 30 days of currency rates and pushes to the arrays
+async function getHistory() {
+     xDates = [];
+     yRates = [];
+ let endDate = new Date()
+ // set the end-date to yesterday (using UNIX time)
+ endDate.setTime(endDate.getTime() - 86400000)
+ let startDate = new Date()
+ // set the start-date to 30 days before the end-date (using UNIX time)
+ startDate.setTime(endDate.getTime() - 2592000000)
+  let url = `https://api.exchangerate.host/timeseries?start_date=${formatDate(startDate)}&end_date=${formatDate(endDate)}&base=USD&symbols=${countrySymbol}`
+  
+  return fetch(url)
+    .then(response => {
+      if (response.status !== 200) {
+        throw new Error(`Unable to connect`)
+      }
+      return response.json()
+    })
+    .then(data => {
+      for (date in data.rates) {
+        xDates.push(date)
+        yRates.push(data.rates[date][`${countrySymbol}`])
+      };
+    })
+    .catch(err => {
+      return err
+      })
+}
+       </script>
+</html>
